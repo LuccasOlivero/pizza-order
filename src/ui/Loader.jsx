@@ -1,21 +1,9 @@
-import { Link, useNavigate } from "react-router-dom";
-
-function LinkButton({ children, to }) {
-  const navigate = useNavigate();
-  const className = "text-sm text-blue-500 hover:text-blue-600 hover:underline";
-
-  if (to === "-1")
-    return (
-      <button className={className} onClick={() => navigate(-1)}>
-        {children}
-      </button>
-    );
-
+function Loader() {
   return (
-    <Link to={to} className={className}>
-      {children}
-    </Link>
+    <div className="absolute inset-0 flex items-center justify-center bg-slate-200/20 backdrop-blur-sm">
+      <div className="loader"></div>
+    </div>
   );
 }
 
-export default LinkButton;
+export default Loader;

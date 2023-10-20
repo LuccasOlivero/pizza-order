@@ -10,7 +10,7 @@ import {
 } from "../../utils/helpers";
 
 function Order() {
-  // order recive data pased into "loader" in App component as "orderLoader"
+  // order recive data from loader(), previus pased in App component as "orderLoader",
   const order = useLoaderData();
 
   // Everyone can search for all orders, so for privacy reasons we're gonna gonna exclude names or address, these are only for the restaurant staff
@@ -23,6 +23,7 @@ function Order() {
     estimatedDelivery,
     cart,
   } = order;
+
   const deliveryIn = calcMinutesLeft(estimatedDelivery);
 
   return (
@@ -55,7 +56,7 @@ function Order() {
 }
 
 export async function loader({ params }) {
-  //params are recived from "loader: orderLoader" in App component
+  // params are recived from "loader: orderLoader" in App component
   const order = await getOrder(params.orderId);
   return order;
 }

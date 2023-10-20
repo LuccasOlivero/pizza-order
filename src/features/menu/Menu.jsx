@@ -6,7 +6,7 @@ function Menu() {
   const menu = useLoaderData();
 
   return (
-    <ul>
+    <ul className="divide-y divide-stone-200 px-2">
       {menu.map((pizza) => (
         <MenuItem pizza={pizza} key={pizza.id} />
       ))}
@@ -16,7 +16,6 @@ function Menu() {
 
 export async function loader() {
   const menu = await getMenu();
-  // return data fetching from API
   return menu;
 }
 

@@ -65,12 +65,12 @@ function Order() {
         {cart.map((item) => (
           <OrderItem
             item={item}
-            key={item.id}
             isLoadingIngredients={fetcher.state === "loading"}
             ingredients={
               fetcher?.data?.find((el) => el.id === item.pizzaId)
                 ?.ingredients ?? []
             }
+            key={item.id}
           />
         ))}
       </ul>
